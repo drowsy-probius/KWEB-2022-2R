@@ -34,3 +34,28 @@ Yes, you should share the ".expo-shared" folder with your collaborators.
 - 원격 서버에서 개발하고 싶음
 
 포트 설정을 해줘야 하지만 `export EXPO_PACKAGER_PROXY_URL=http://example.org` 으로 환경변수를 설정하면 해당 주소`:80`으로 개발 환경 오픈이 가능함.
+
+
+- `entryPoint` 변경하고 싶음
+
+`app.json`에서 아래 항목 추가/변경하면 됨. 기본 값은 `App.js`인 듯함.
+```
+{
+  "expo": {
+    "entryPoint": "./src/App.js"
+  }
+}
+```
+그리고 아래 코드로 루트 컴포넌트를 명시해줘야 동작함.
+```javascript
+import { registerRootComponent } from 'expo';
+class App ...
+export default registerRootComponent(App);
+```
+
+
+- `expo go`앱에서 디버깅 화면 띄우기
+![디버깅화면](./img/Screenshot_20220921-202414_Expo%20Go.png)
+[expo docs](https://docs.expo.dev/workflow/debugging/)
+
+iOS 기기면 흔들거나 3개 동시 터치하면 해당 메뉴가 열리고 Android 기기면 위아래로 흔들거나 adb 명령어로 해당 메뉴를 열 수 있다고 함.

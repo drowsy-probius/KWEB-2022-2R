@@ -4,7 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SRC_DIR="$SCRIPT_DIR"
 cd $SRC_DIR
 
-MESSAGE_ARRAY=("8^8" ">_<" "*^*" "T^T" "OwO" "*3*" "🤔" "🤨" "❓" "❗" "⁉️" "X_X" "ꉂꉂ(ᵔᗜᵔ*)")
+MESSAGE_ARRAY=("8^8" ">_<" "*^*" "T^T" "OwO" "OvO" "🤔" "🤨" "??" "!" "X_X" "ꉂꉂ(ᵔᗜᵔ*)")
 LENGTH=13
 INDEX="$RANDOM % $LENGTH"
 COMMIT_MESSAGE=$1

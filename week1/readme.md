@@ -55,7 +55,8 @@ export default registerRootComponent(App);
 
 
 - `expo go`앱에서 디버깅 화면 띄우기
-![디버깅화면](./img/Screenshot_20220921-202414_Expo%20Go.png)
+<img src="./img/Screenshot_20220921-202414_Expo%20Go.png" alt="디버깅화면" style="width:200px;"/>
+
 [expo docs](https://docs.expo.dev/workflow/debugging/)
 
 iOS 기기면 흔들거나 3개 동시 터치하면 해당 메뉴가 열리고 Android 기기면 위아래로 흔들거나 adb 명령어로 해당 메뉴를 열 수 있다고 함.

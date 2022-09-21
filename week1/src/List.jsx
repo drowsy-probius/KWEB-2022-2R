@@ -108,11 +108,11 @@ export default () => {
         paddingRight: 10,
         paddingLeft: 10,
       }}>
-        <View style={{
+        <View style={{ 
           borderBottomColor: "black",
           borderBottomWidth: StyleSheet.hairlineWidth,
-        }}
-        />
+        }} 
+        /> {/* <hr> */}
         <Footer addItem={addItem} />
       </View>
     </SafeAreaView>

@@ -64,3 +64,13 @@ iOS 기기면 흔들거나 3개 동시 터치하면 해당 메뉴가 열리고 A
 
 - `View`는 `<div>`와 유사하게 생각해도 된다.
 
+- `FlatList`에는 헤더 고정은 있지만 footer 고정은 없다. 그래서 따로 `View`만든 후 적절하게 `flex`비율 설정한다.
+
+- style에서 `flex`값은 `number`형으로 부모 요소에서 차지할 비율을 설정한다. `1 1 3`면 각각 20% 20% 60%를 차지하게 된다. 차지하는 부분이 `row`인지 `column`인지는 `flexDirection` 값에 따라 다르다.
+
+- `Flatlist` 목록을 업데이트 하려면 `extraData`를 통해서 데이터가 변경됨을 알려줘야 한다. 해당 속성에 추가 데이터를 넣는 것보다 `boolean`값을 통해서 새 값이 있음을 알려주는 것이 낫다.
+
+- `Flatlist`에서 새 데이터가 추가될 때 이벤트는 `onContentSizeChange`을 통해서 하면 된다. 해당 `component` 페이지에서 못 찾았는데 아마 공통 속성일 것이다?
+
+- `component` 자체에서 `style={{}}`으로 스타일을 정하는 것보다 `StyleSheet`객체를 만든 후 `style={styles.test}`으로 하는 것이 성능 향상에 좋다고 봤는데 확인이 필요하다.
+

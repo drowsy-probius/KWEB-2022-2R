@@ -1,28 +1,16 @@
 import { registerRootComponent } from 'expo';
 
-import { StatusBar } from 'expo-status-bar';
 import {
   Platform, 
   StyleSheet, 
-  Text, 
   View,
-  TextInput,
 } from 'react-native';
+import List from './List';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      {/* <Text>{JSON.stringify(Platform)}</Text> */}
-      <TextInput style={{
-        minWidth: 100,
-        height: 50,
-        borderColor: "grey",
-        borderWidth: 2
-      }} 
-      autoFocus={true}
-      defaultValue="asdfasdf"
-      />
-      {/* <StatusBar style="auto" /> */}
+      <List />
     </View>
   );
 }

@@ -60,3 +60,7 @@ export default registerRootComponent(App);
 [expo docs](https://docs.expo.dev/workflow/debugging/)
 
 iOS 기기면 흔들거나 3개 동시 터치하면 해당 메뉴가 열리고 Android 기기면 위아래로 흔들거나 adb 명령어로 해당 메뉴를 열 수 있다고 함.
+
+
+- `View`는 `<div>`와 유사하게 생각해도 된다.
+

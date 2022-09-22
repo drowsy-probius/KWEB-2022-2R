@@ -111,8 +111,9 @@ export default () => {
         <View style={{ 
           borderBottomColor: "black",
           borderBottomWidth: StyleSheet.hairlineWidth,
+          // <hr> 흉내내기
         }} 
-        /> {/* <hr> */}
+        />
         <Footer addItem={addItem} />
       </View>
     </SafeAreaView>

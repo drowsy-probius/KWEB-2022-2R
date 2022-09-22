@@ -1,16 +1,16 @@
 import { registerRootComponent } from 'expo';
-
+import React from 'react';
 import {
-  Platform, 
   StyleSheet, 
   View,
 } from 'react-native';
-import List from './List';
+import TodoList from './components/TodoList';
+
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <List />
+      <TodoList />
     </View>
   );
 }
@@ -18,7 +18,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#c1efff',
     alignItems: 'center',
     justifyContent: 'center',
   },

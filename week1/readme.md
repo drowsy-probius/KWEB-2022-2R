@@ -8,11 +8,15 @@
 
 - iOS
 <img src="./img/ios.svg" alt="iOS expo qrcode" style="width:300px;"/>
-[exp://u.expo.dev/update/6cee0ced-4ce8-4372-ad61-cd6146b442ff](exp://u.expo.dev/update/6cee0ced-4ce8-4372-ad61-cd6146b442ff)
+또는
+
+exp://u.expo.dev/update/6cee0ced-4ce8-4372-ad61-cd6146b442ff
 
 - Android
 <img src="./img/android.svg" alt="Android expo qrcode" style="width:300px;"/>
-[exp://u.expo.dev/update/38eb3b3f-81ad-474c-b439-6a0178846203](exp://u.expo.dev/update/38eb3b3f-81ad-474c-b439-6a0178846203)
+또는
+
+exp://u.expo.dev/update/38eb3b3f-81ad-474c-b439-6a0178846203
 
 
 

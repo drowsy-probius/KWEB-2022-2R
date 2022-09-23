@@ -1,17 +1,22 @@
-# 1주차
+# 1주차: React-native 사용해보기
 
-## React-native 사용해보기
 
-### TODO 앱 만들기...?
+## TODO 앱 만들기...?
 
-- 템플릿 사용 및 앱 실행
 
-```bash
-npx create-expo-app projectName
+### Preview
 
-cd projectName
-npm start # you can also use: npx expo start
-```
+- iOS
+<img src="./img/ios.svg" alt="iOS expo qrcode" style="width:300px;"/>
+[exp://u.expo.dev/update/6cee0ced-4ce8-4372-ad61-cd6146b442ff](exp://u.expo.dev/update/6cee0ced-4ce8-4372-ad61-cd6146b442ff)
+
+- Android
+<img src="./img/android.svg" alt="Android expo qrcode" style="width:300px;"/>
+[exp://u.expo.dev/update/38eb3b3f-81ad-474c-b439-6a0178846203](exp://u.expo.dev/update/38eb3b3f-81ad-474c-b439-6a0178846203)
+
+
+
+### Notes
 
 - `.expo-shared` 폴더는 뭐하는 폴더?
 

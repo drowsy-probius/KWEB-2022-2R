@@ -14,5 +14,5 @@
 ## create project using template
 ```bash
 npx create-expo-app projectName
-npx create-expo-app --template expo-template-blank-typescript `# typescript`
+npx create-expo-app --template expo-template-blank-typescript # typescript
 ```

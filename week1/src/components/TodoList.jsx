@@ -53,7 +53,6 @@ const TodoList = () => {
       <View style={styles.list}>
         <ListInsert onAddItem={onAddItem} />
         <Animated.ScrollView 
-          scrollEventThrottle={1}
           onScroll={onScroll}
         >
           {

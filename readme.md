@@ -9,3 +9,10 @@
 - [react-native-styling-cheat-sheet](https://github.com/vhpoet/react-native-styling-cheat-sheet)
 
 - [yeri-kim.github.io/tag/react-native](https://yeri-kim.github.io/tag/react-native)
+
+
+## create project using template
+```bash
+npx create-expo-app projectName
+npx create-expo-app --template expo-template-blank-typescript `# typescript`
+```

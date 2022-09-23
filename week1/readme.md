@@ -76,7 +76,10 @@ iOS 기기면 흔들거나 3개 동시 터치하면 해당 메뉴가 열리고 A
 
 - 사용자 제스쳐나 부드러운 애니메이션을 구현하고 싶으면 `Animated`를 사용하는 것이 좋다.
 
-- 원래 `Button`와 같은 컴포넌트만 클릭이 가능하지만 `Pressable`으로 감싸면 `Text`등의 컴포넌트도 클릭이 가능하다.
+
+## Deployments
+
+[https://docs.expo.dev/eas-update/getting-started/](https://docs.expo.dev/eas-update/getting-started/)
 
 
 

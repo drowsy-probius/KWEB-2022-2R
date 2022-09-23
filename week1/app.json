@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "week1",
-    "slug": "week1",
+    "slug": "2022-2r-week1",
+    "owner": "probius",
     "version": "1.0.0",
     "entryPoint": "./src/App.jsx",
     "orientation": "default",
@@ -13,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/24b98604-b3e6-4135-943e-7d431971d09a"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -29,6 +31,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "24b98604-b3e6-4135-943e-7d431971d09a"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

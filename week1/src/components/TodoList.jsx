@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   SafeAreaView,
   View,
@@ -27,7 +27,7 @@ const DATA = [
 
 const TodoList = () => {
   const [items, setItems] = useState(DATA);
-  const [translateY] = useState(new Animated.Value(0));
+  const translateY = useRef(new Animated.Value(0)).current;
 
   const onAddItem = (content) => {
     setItems([
@@ -54,6 +54,7 @@ const TodoList = () => {
         <ListInsert onAddItem={onAddItem} />
         <Animated.ScrollView 
           onScroll={onScroll}
+          horizontal={false}
         >
           {
             items.map(item => (

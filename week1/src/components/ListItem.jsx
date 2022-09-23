@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -11,11 +11,10 @@ import {
 
 const ListItem = ({id, content, onRemove}) => {
   const [endReached, setEndReached] = useState(false);
-  const [translateX] = useState(new Animated.Value(0));
+  const translateX = useRef(new Animated.Value(0)).current;
   const scrollDistance = -70;
-  const completeThreshold = -60;
+  const completeThreshold = -25;
   
-
   const onRemoveHandler = () => {
     onRemove(id);
   }
@@ -39,16 +38,31 @@ const ListItem = ({id, content, onRemove}) => {
     }).start();
     return setEndReached(true);
   }
-  const onComplete = () => {}
-  const onSwipeStart = () => {}
-  const onSwipeEnd = () => {}
-  const onMove = (gestureResponderEvent, gestureState) => {
-    if(gestureState.dx > 0 || gestureState.dx < scrollDistance) {
-      return Animated.event([{dx: translateX}], {useNativeDriver: false})({
-        ...gestureState,
-        dx: gestureState.dx > 0 ? 0 : scrollDistance
-      })
+  const onComplete = (gestureResponderEvent, gestureState) => {}
+  const onSwipeStart = (gestureResponderEvent, gestureState) => {}
+  const onSwipeEnd = (gestureResponderEvent, gestureState) => {
+    if(Math.abs(gestureState.vx) < 0.01 && Math.abs(gestureState.vy) < 0.01 && Math.abs(gestureState.dx) < 2 && Math.abs(gestureState.dy) < 2) 
+    {
+      console.log("touched");
+      return endReached ? animateToStart() : animateToEnd();
     }
+    console.log(
+      gestureResponderEvent.nativeEvent.locationX, 
+      gestureResponderEvent.nativeEvent.locationY,
+      gestureResponderEvent.nativeEvent.target,
+    );
+
+    if(Math.abs(gestureState.dy) > 10) return endReached ? animateToEnd() : animateToStart(); // 원래 상태로 돌아가기
+    if(gestureState.vx < -3) return animateToEnd();
+    if(gestureState.vy > 3) return animateToStart();
+  };
+  const onMove = (gestureResponderEvent, gestureState) => {
+    // if(gestureState.dx > 0 || gestureState.dx < scrollDistance) {
+    //   return Animated.event([{dx: translateX}], {useNativeDriver: false})({
+    //     ...gestureState,
+    //     dx: gestureState.dx > 0 ? 0 : scrollDistance
+    //   })
+    // }
     return Animated.event([{dx: translateX}], {useNativeDriver: false})(gestureState);
   }
   const onRelease = () => {
@@ -72,16 +86,15 @@ const ListItem = ({id, content, onRemove}) => {
   const panHandlers = PanResponser().panHandlers;
   
   return (
-  <View style={styles.itemContainer}>
+    <View>
       <Animated.View 
-        style={{
+        style={[
+          styles.item,
+          {
             transform: [{translateX: translateX}]
-          }}
-        {...panHandlers}
-      >
-        <Pressable style={styles.item}>
-          <Text>{content}</Text>
-        </Pressable>
+          }
+      ]}>
+        <Animated.Text {...panHandlers}>{content}</Animated.Text>
       </Animated.View>
       <View style={styles.hiddenView}>
         <Button title="삭제" onPress={onRemoveHandler} />
@@ -91,8 +104,6 @@ const ListItem = ({id, content, onRemove}) => {
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-  }, 
   item: {
     backgroundColor: "#5CB8E4",
     padding: 20,

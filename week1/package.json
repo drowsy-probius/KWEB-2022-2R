@@ -6,7 +6,7 @@
     "start": "env-cmd expo start",
     "android": "env-cmd expo start --android",
     "ios": "env-cmd expo start --ios",
-    "web": "env-cmd  expo start --web "
+    "web": "env-cmd expo start --web "
   },
   "dependencies": {
     "expo": "~46.0.9",

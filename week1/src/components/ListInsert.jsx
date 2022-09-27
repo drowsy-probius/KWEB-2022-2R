@@ -24,6 +24,7 @@ const ListInsert = ({onAddItem}) => {
 
   return (
     <KeyboardAvoidingView style={styles.insertContainer}>
+      {/** 이것도 docs에는 style 속성 없는데? */}
       <TextInput 
         style={styles.input} 
         ref={inputRef} 

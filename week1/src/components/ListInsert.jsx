@@ -31,7 +31,6 @@ const ListInsert = ({onAddItem}) => {
         onSubmitEditing={addItemHandler}
       />
       <Button 
-        style={styles.button} 
         title="추가" 
         onPress={addItemHandler}
       />
@@ -52,9 +51,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginRight: 10,
     marginLeft: 5,
-  },
-  button: {
-    marginRight: 10
   }
 });
 

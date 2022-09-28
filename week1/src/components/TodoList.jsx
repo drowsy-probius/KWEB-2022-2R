@@ -4,6 +4,7 @@ import {
   View,
   StyleSheet,
   StatusBar,
+  ScrollView,
   Animated,
 } from "react-native";
 
@@ -28,7 +29,6 @@ const DATA = [
 const TodoList = () => {
   const [items, setItems] = useState(DATA);
   const translateY = useRef(new Animated.Value(0)).current;
-
   const onAddItem = (content) => {
     setItems([
       ...items,
@@ -43,17 +43,13 @@ const TodoList = () => {
     setItems(items.filter(item => item.id !== id));
   }
 
-  const onScroll = (gestureResponderEvent, gestureState) => {
-    return Animated.event([{ nativeEvent: {contentOffset: {y: translateY}}}], {useNativeDriver: false});
-  }
 
   return (
     <SafeAreaView style={styles.container}>
       <ListHeader />
       <View style={styles.list}>
         <ListInsert onAddItem={onAddItem} />
-        <Animated.ScrollView 
-          onScroll={onScroll}
+        <ScrollView 
           horizontal={false}
         >
           {
@@ -66,7 +62,7 @@ const TodoList = () => {
               />
             ))
           }
-        </Animated.ScrollView>
+        </ScrollView>
       </View>
       
     </SafeAreaView>

@@ -43,6 +43,13 @@ const TodoList = () => {
     setItems(items.filter(item => item.id !== id));
   }
 
+  const onEdit = (id, text) => {
+    setItems(items.map(item => {
+      if(item.id === id) item.content = text;
+      return item;
+    }))
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,6 +66,7 @@ const TodoList = () => {
                 id={item.id}
                 content={item.content} 
                 onRemove={onRemove}
+                onEdit={onEdit.bind(null, item.id)}
               />
             ))
           }

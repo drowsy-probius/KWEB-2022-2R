@@ -8,8 +8,10 @@ import {
   Button,
   Pressable,
 } from "react-native";
+import ModalEditor from "./ModalEditor";
 
-const ListItem = ({id, content, onRemove}) => {
+const ListItem = ({id, content, onRemove, onEdit}) => {
+  const [showModal, setShowModal] = useState(false);
   const [endReached, setEndReached] = useState(false);
   const translateX = useRef(new Animated.Value(0)).current;
   const scrollDistance = -70;
@@ -40,38 +42,25 @@ const ListItem = ({id, content, onRemove}) => {
   }
   const onComplete = (gestureResponderEvent, gestureState) => {}
   const onSwipeStart = (gestureResponderEvent, gestureState) => {}
-  const onSwipeEnd = (gestureResponderEvent, gestureState) => {
-    if(Math.abs(gestureState.vx) < 0.01 && Math.abs(gestureState.vy) < 0.01 && Math.abs(gestureState.dx) < 2 && Math.abs(gestureState.dy) < 2) 
-    {
-      console.log("touched");
-      return endReached ? animateToStart() : animateToEnd();
-    }
-    console.log(
-      gestureResponderEvent.nativeEvent.locationX, 
-      gestureResponderEvent.nativeEvent.locationY,
-      gestureResponderEvent.nativeEvent.target,
-    );
-
-    if(Math.abs(gestureState.dy) > 10) return endReached ? animateToEnd() : animateToStart(); // 원래 상태로 돌아가기
-    if(gestureState.vx < -3) return animateToEnd();
-    if(gestureState.vy > 3) return animateToStart();
-  };
+  const onSwipeEnd = (gestureResponderEvent, gestureState) => { };
   const onMove = (gestureResponderEvent, gestureState) => {
-    // if(gestureState.dx > 0 || gestureState.dx < scrollDistance) {
-    //   return Animated.event([{dx: translateX}], {useNativeDriver: false})({
-    //     ...gestureState,
-    //     dx: gestureState.dx > 0 ? 0 : scrollDistance
-    //   })
-    // }
+    if(gestureState.dx > 0 || gestureState.dx < scrollDistance) {
+      return Animated.event([{dx: translateX}], {useNativeDriver: false})({
+        ...gestureState,
+        dx: gestureState.dx > 0 ? 0 : scrollDistance
+      })
+    }
     return Animated.event([{dx: translateX}], {useNativeDriver: false})(gestureState);
   }
-  const onRelease = () => {
-    if(endReached) {
-      return animateToStart();
-    }
+  const onRelease = () => { }
+  const onPressOut = () => {
+    if(endReached) return animateToStart();
 
     const isCompleted = translateX._value <= completeThreshold;
     return isCompleted ? animateToEnd() : animateToStart();
+  }
+  const onLongPress = () => {
+    setShowModal(true);
   }
 
   const PanResponser = () => PanResponder.create({
@@ -94,11 +83,22 @@ const ListItem = ({id, content, onRemove}) => {
             transform: [{translateX: translateX}]
           }
       ]}>
-        <Animated.Text {...panHandlers}>{content}</Animated.Text>
+        <Animated.Text 
+          {...panHandlers}
+          onPressOut={onPressOut}
+          onLongPress={onLongPress}
+        >{content}</Animated.Text>
       </Animated.View>
       <View style={styles.hiddenView}>
         <Button title="삭제" onPress={onRemoveHandler} />
       </View>
+
+      <ModalEditor
+        value={content}
+        setValue={onEdit}
+        modalVisible={showModal}
+        closeHandler={() => setShowModal(false)}
+      />
     </View>
   )
 }

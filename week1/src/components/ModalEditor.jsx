@@ -1,6 +1,7 @@
 import React from "react";
 import {
   View,
+  KeyboardAvoidingView,
   Modal,
   StyleSheet,
   Text,
@@ -13,36 +14,48 @@ const ModalEditor = ({value, setValue, modalVisible, closeHandler}) => {
 
 
   return (
-    <View>
+    <KeyboardAvoidingView>
       <Modal
-        style={styles.modalView}
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={closeHandler}
       >
-        <View>
+        <View
+          style={styles.modalView}
+        >
           <TextInput
+            style={styles.modalTextInput}
             value={value}
             onChangeText={setValue}
             onSubmitEditing={closeHandler}
           />
           <Button
+            style={styles.modalCloseButton}
             title="닫기"
             onPress={closeHandler}
           />
         </View>
 
       </Modal>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
   modalView: {
-    margin: 20,
-    backgroundColor: "grey",
-    marginTop: "40%",
+    top: "40%",
+    marginLeft: "8%",
+    marginRight: "8%",
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#4C679380",
+  },
+  modalTextInput: {
+    backgroundColor: "white",
+    padding: 3,
+  },
+  modalCloseButton: {
   }
 });
 

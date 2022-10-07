@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   modalCloseButton: {
+    backgroundColor: "pink",
+    padding: 10,
   }
 });
 

@@ -25,7 +25,7 @@ function Body(props){
       <View style={styles.photos}>
         <ImageList photos={photos} />
       </View>
-      <hr style={{width: "99%", margin: 4}}/>
+      <View style={{width: "99%", margin: 4, borderBottomWidth: StyleSheet.hairlineWidth}}/>
       <View style={styles.comments}>
         <Comments user={user}/>
       </View>

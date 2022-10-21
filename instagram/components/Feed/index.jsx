@@ -4,8 +4,7 @@ import Item from "./Item";
 
 const styles = StyleSheet.create({
   feed: {
-    width: "100vw",
-    height: "100vh",
+    flex: 1,
   }
 })
 

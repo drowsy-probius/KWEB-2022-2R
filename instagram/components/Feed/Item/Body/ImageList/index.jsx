@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
     zIndex: 999,
   },
   floatLeft: {
-    alignSelf: "start",
+    alignSelf: "flex-start",
   },
   floatRight: {
-    alignSelf: "end",
+    alignSelf: "flex-end",
   },
 
 });

@@ -8,10 +8,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
 
-    paddingBottom: "15px",
-    paddingTop: "10px",
-    paddingLeft: "40px",
-    paddingRight: "40px",
+    paddingBottom: 15,
+    paddingTop: 10,
+    paddingLeft: 40,
+    paddingRight: 40,
   },
 
   profileAndUsername: {

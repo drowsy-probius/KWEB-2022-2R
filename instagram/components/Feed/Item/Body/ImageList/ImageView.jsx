@@ -24,8 +24,6 @@ function ImageView(props)
 {
   const {photo} = props;
 
-  console.log(photo);
-
   return (
     <View style={styles.imageView}>
       <Image 

@@ -4,7 +4,8 @@ import Item from "./Item";
 
 const styles = StyleSheet.create({
   feed: {
-    borderColor: "#black",
+    width: "100vw",
+    height: "100vh",
   }
 })
 
@@ -12,7 +13,7 @@ const Feed = () => {
   const mock = [0, 1, 2, 3, 4];
 
   return (
-    <View style={styles.width}>
+    <View style={styles.feed}>
       {
         mock.map(i => (
           <Item key={i} />

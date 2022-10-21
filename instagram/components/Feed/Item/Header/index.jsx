@@ -3,9 +3,15 @@ import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 
 const styles = StyleSheet.create({
   header: {
+    flex: 1,
     width: "100%",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+
+    paddingBottom: "15px",
+    paddingTop: "10px",
+    paddingLeft: "40px",
+    paddingRight: "40px",
   },
 
   profileAndUsername: {
@@ -25,7 +31,7 @@ const styles = StyleSheet.create({
   username: {
     marginBottom: 0,
     fontWeight: "bold",
-    bottom: -7,
+    marginTop: 5,
   },
 
   buttons: {
@@ -34,7 +40,9 @@ const styles = StyleSheet.create({
 });
 
 
-function FeedHeader({user}) {
+function Header(props) {
+  const {user} = props; 
+  
   return (
     <View style={styles.header}>
       <Pressable style={styles.profileAndUsername}>
@@ -55,4 +63,4 @@ function FeedHeader({user}) {
 
 
 
-export default FeedHeader;
+export default Header;

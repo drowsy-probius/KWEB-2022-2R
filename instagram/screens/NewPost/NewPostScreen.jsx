@@ -1,5 +1,5 @@
-import { View, StyleSheet, Text, TouchableOpacity, SafeAreaView } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, SafeAreaView } from "react-native";
+import React from "react";
 import { AddNewPost } from "./AddNewPost";
 
 

@@ -1,4 +1,4 @@
-import { View, TextInput, Button, Text, StyleSheet } from 'react-native'
+import { View, TextInput, Button, StyleSheet } from 'react-native'
 import React from 'react'
 
 const LoginForm = () => {

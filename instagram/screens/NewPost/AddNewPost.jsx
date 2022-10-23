@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import FormikPostUploader from "./FormikPostUploader";
 
 

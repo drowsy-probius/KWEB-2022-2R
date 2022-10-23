@@ -1,5 +1,4 @@
-import { SafeAreaView, Text, StyleSheet, Platform, StatusBar, View, ScrollView } from "react-native";
-import Constants from "expo-constants";
+import { SafeAreaView, StyleSheet, StatusBar, ScrollView } from "react-native";
 import Header from "./Header";
 import Stories from "./Stories";
 import { Divider } from "@rneui/themed";
@@ -7,7 +6,7 @@ import { Divider } from "@rneui/themed";
 import { useDispatch } from "react-redux";
 import { setFriendsValue } from "../redux/friends";
 import { setPostsValue } from "../redux/posts";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { randomUserData, randomPost } from "../data";
 import Feed from "./Feed";

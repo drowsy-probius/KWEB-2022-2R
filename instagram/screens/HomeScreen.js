@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { randomUserData, randomPost } from "../data";
 import Feed from "./Feed";
 
-import { bottomTabIcons, BottomTab } from "./BottomTab/index.jsx";
+import { bottomTabIcons, BottomTab } from "./BottomTab";
 
 const styles = StyleSheet.create({
   container: {

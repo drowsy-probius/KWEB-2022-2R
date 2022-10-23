@@ -1,7 +1,6 @@
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 
 import React, { useState } from "react";
-//import { Divider } from "react-native-element";
 
 export const bottomTabIcons = [
   {
@@ -64,17 +63,19 @@ export const BottomTab = ({ icons }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    position: "absolute",
     width: "100%",
     bottom: "7%",
     zIndex: 999,
     height: 1,
+    backgroundColor: "black",
   },
   container: {
     flexDirection: "row",
     justifyContent: "space-around",
     height: 50,
     paddingTop: 10,
+    bottom: 0,
+    backgroundColor: "black",
   },
   icon: {
     width: 30,

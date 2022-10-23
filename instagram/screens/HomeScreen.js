@@ -9,6 +9,8 @@ import { useEffect } from "react";
 
 import { randomImageUrl, randomUserData } from "../data";
 
+import { bottomTabIcons, BottomTab } from "./BottomTab/index.jsx";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -17,7 +19,8 @@ const styles = StyleSheet.create({
   },
   statusbar: {
     backgroundColor: "black",
-  }
+  },
+  
 });
 
 
@@ -52,6 +55,7 @@ function HomeScreen() {
         marginTop: -10,
         marginBottom: 10,
       }}/>
+      <BottomTab icons = {bottomTabIcons}></BottomTab>
     </SafeAreaView>
   )
 }

@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { randomUserData, randomPost } from "../data";
 import Feed from "./Feed";
 
+import { bottomTabIcons, BottomTab } from "./BottomTab/index.jsx";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -20,7 +22,8 @@ const styles = StyleSheet.create({
   },
   statusbar: {
     backgroundColor: "black",
-  }
+  },
+  
 });
 
 
@@ -56,6 +59,7 @@ function HomeScreen() {
         <Divider width={1} orientation='vertical' />
         <Feed />
       </ScrollView>
+      <BottomTab icons = {bottomTabIcons}></BottomTab>
     </SafeAreaView>
   )
 }

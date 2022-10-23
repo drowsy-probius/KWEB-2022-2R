@@ -1,13 +1,16 @@
-import { SafeAreaView, Text, StyleSheet, Platform, StatusBar, View } from "react-native";
+import { SafeAreaView, Text, StyleSheet, Platform, StatusBar, View, ScrollView } from "react-native";
 import Constants from "expo-constants";
 import Header from "./Header";
 import Stories from "./Stories";
+import { Divider } from "@rneui/themed";
 
 import { useDispatch } from "react-redux";
 import { setFriendsValue } from "../redux/friends";
-import { useEffect } from "react";
+import { setPostsValue } from "../redux/posts";
+import { useEffect, useState } from "react";
 
-import { randomImageUrl, randomUserData } from "../data";
+import { randomUserData, randomPost } from "../data";
+import Feed from "./Feed";
 
 import { bottomTabIcons, BottomTab } from "./BottomTab/index.jsx";
 
@@ -28,33 +31,34 @@ function HomeScreen() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function createFriends()
+    async function createFriendsAndPosts()
     {
-      const rand = Math.floor(Math.random() * 20) + 1;
+      const rand = Math.floor(Math.random() * 15) + 5;
       const friends = await randomUserData(rand);
-      // console.log(friends);
+      console.log(`${friends.length} friends loaded!`);
       dispatch(setFriendsValue(friends));
+
+      const posts = await Promise.all(Array.apply(null, Array(parseInt(Math.random() * 10) + 5)).map(async (i) => {
+        const user = friends[parseInt(Math.random() * friends.length)];
+        const post = await randomPost(user);
+        return post;
+      }));
+      console.log(`${posts.length} posts loaded!`);
+      dispatch(setPostsValue(posts));
     }
 
-    createFriends();
+    createFriendsAndPosts();
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style={styles.statusbar} />
       <Header />
-      {/* <View style={{ 
-        borderBottomWidth: StyleSheet.hairlineWidth, 
-        borderBottomColor: "rgba(255, 255, 255, 0.3)",
-        marginBottom: 10,
-      }}/> */}
-      <Stories />
-      <View style={{ 
-        borderBottomWidth: StyleSheet.hairlineWidth, 
-        borderBottomColor: "rgba(255, 255, 255, 0.2)",
-        marginTop: -10,
-        marginBottom: 10,
-      }}/>
+      <ScrollView>
+        <Stories />
+        <Divider width={1} orientation='vertical' />
+        <Feed />
+      </ScrollView>
       <BottomTab icons = {bottomTabIcons}></BottomTab>
     </SafeAreaView>
   )

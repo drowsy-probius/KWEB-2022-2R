@@ -94,7 +94,9 @@ function Header(){
         <TouchableOpacity>
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadBadgeText}>
-              9
+              {
+                parseInt(Math.random() * 20) + 1
+              }
             </Text>
           </View>
           <Image 

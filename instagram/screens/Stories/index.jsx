@@ -16,7 +16,7 @@ export default function Stories() {
   const friends = useSelector(selectFriends);
 
   return (
-    <View>
+    <View style={styles.storyContainer}>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -46,8 +46,8 @@ export default function Stories() {
         {friends.map((friend, idx) => {
           const name = `${friend.name.first}${friend.name.last}`;
           return (
-            <TouchableOpacity>
-              <View key={idx} style={{ alignItems: 'center', }}>
+            <TouchableOpacity key={idx}>
+              <View style={{ alignItems: 'center', }}>
                 <ImageBackground
                   style={styles.storyBackground}
                   source={require("../../assets/instagram/story-unread.png")}
@@ -74,6 +74,9 @@ export default function Stories() {
 }
 
 const styles = StyleSheet.create({
+  storyContainer: {
+    height: 110,
+  },
   myStoryImage: {
     width: 55,
     height: 55,
@@ -113,7 +116,6 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: "center",
   },
-
   story: {
     width: 70,
     height: 70,

@@ -16,6 +16,7 @@ web-build/
 # lock files
 package-lock.json
 yarn.lock
+*.log
 
 # env files
 .env*

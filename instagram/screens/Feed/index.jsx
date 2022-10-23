@@ -1,25 +1,22 @@
-import { View, StyleSheet } from "react-native"
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Post from '../Post'
 
-import Item from "./Item";
+import { useSelector } from "react-redux";
+import { selectPosts } from "../../redux/posts";
 
-const styles = StyleSheet.create({
-  feed: {
-    flex: 1,
-  }
-})
-
-const Feed = () => {
-  const mock = [0, 1, 2, 3, 4];
+export default function Feed() {
+  const posts = useSelector(selectPosts);
 
   return (
-    <View style={styles.feed}>
+    <View>
       {
-        mock.map(i => (
-          <Item key={i} />
+        posts.map((post, idx) => (
+          <Post key={post.id} post={post} />
         ))
       }
     </View>
   )
 }
 
-export default Feed;
+const styles = StyleSheet.create({})

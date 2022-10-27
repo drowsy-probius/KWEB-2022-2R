@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
   }
 })
 
-function Header(){
+function Header({navigation}){
+  
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.logoContainer}>
@@ -79,7 +80,7 @@ function Header(){
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
           <Image 
             style={styles.icon}
             source={require("../../assets/instagram/square-plus-white.png")}

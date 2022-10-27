@@ -3,15 +3,12 @@ import React from "react";
 import { AddNewPost } from "./AddNewPost";
 
 
-export const NewPostScreen = ({ icons }) => {
+export const NewPostScreen = ({ navigation }) => {
   
   return (
     <SafeAreaView style={{backgroundColor: 'black', flex: 1}}>
-      <AddNewPost/>
+      <AddNewPost navigation={navigation}/>
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  
-});

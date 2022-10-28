@@ -15,7 +15,6 @@ export default function App() {
   return (
     <SafeAreaProvider>  
       <Provider store={store}>
-        {/* 메인 피드 화면 들어가고 싶으면 SignedInStack -> (19번째줄) initialRouteName='HomeScreen' 으로 변경!*/}
         <SignedInStack/>
       </Provider>
     </SafeAreaProvider>

@@ -37,7 +37,7 @@ function HomeScreen( {navigation} ) {
       console.log(`${friends.length} friends loaded!`);
       dispatch(setFriendsValue(friends));
 
-      const posts = await Promise.all(Array.apply(null, Array(parseInt(Math.random() * 10) + 5)).map(async (i) => {
+      const posts = await Promise.all(Array.apply(null, Array(parseInt(Math.random() * 10) + 2)).map(async (i) => {
         const user = friends[parseInt(Math.random() * friends.length)];
         const post = await randomPost(user);
         return post;

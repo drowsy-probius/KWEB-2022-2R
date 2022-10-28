@@ -1,9 +1,14 @@
+/**
+ * redux 조작할 수 있는 최상위 컴포넌트
+ */
+
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import  HomeScreen  from "../HomeScreen";
 import  {NewPostScreen}  from "../NewPost/NewPostScreen";
 import LoginScreen from "../LoginScreen/LoginScreen";
 import SignUpScreen from "../SignUp/SignUpScreen";
+
 
 const Stack = createStackNavigator();
 
@@ -12,7 +17,6 @@ const screenOptions = {
 }
 
 const SignedInStack = () => {
-
   return(
       <NavigationContainer>
       <Stack.Navigator

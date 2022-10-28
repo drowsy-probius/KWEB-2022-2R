@@ -144,7 +144,7 @@ export async function randomPost(user, likeMax=5000,) {
       user: user,
       likes: parseInt(Math.random() * likeMax) + 1,
       caption: (await randomParagraph()) ?? "",
-      comments: await Promise.all(Array.apply(null, Array(parseInt(Math.random() * 7) + 1)).map(async (i) => {
+      comments: await Promise.all(Array.apply(null, Array(parseInt(Math.random() * 3) + 1)).map(async (i) => {
         return {
           user: (await randomUsername()) ?? "johnDoe",
           comment: (await randomSentence()) ?? "dummy comment",
@@ -158,7 +158,7 @@ export async function randomPost(user, likeMax=5000,) {
     console.error(`randomPost`, err);
     return {
       id: randomHexString(),
-      images: `https://picsum.photos/512`,
+      images: [`https://picsum.photos/512`],
       user: user,
       likes: parseInt(Math.random() * likeMax) + 1,
       caption: "dummy contents",

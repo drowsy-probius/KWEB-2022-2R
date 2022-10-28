@@ -19,7 +19,8 @@ const LoginForm = ({navigation}) => {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-          console.log({values})
+          // console.log({values})
+          navigation.push('HomeScreen')
         }}
         validationSchema={LoginFormSchema}
         validateOnMount={true}

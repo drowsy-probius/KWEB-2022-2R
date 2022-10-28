@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 
-function HomeScreen() {
+function HomeScreen( {navigation} ) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style={styles.statusbar} />
-      <Header />
+      <Header navigation={navigation}/>
       <ScrollView>
         <Stories />
         <Divider width={1} orientation='vertical' />

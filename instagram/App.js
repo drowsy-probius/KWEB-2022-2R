@@ -1,12 +1,9 @@
-import HomeScreen from "./screens/HomeScreen"
-
+import SignedInStack from "./screens/Navigations";
 /**
  * for redux
  */
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { NewPostScreen } from "./screens/NewPost/NewPostScreen";
-import LoginScreen from "./screens/LoginScreen/LoginScreen";
 
 /**
  * for react-native-elements
@@ -16,9 +13,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider>  
       <Provider store={store}>
-        <HomeScreen />
+        {/* 메인 피드 화면 들어가고 싶으면 SignedInStack -> (19번째줄) initialRouteName='HomeScreen' 으로 변경!*/}
+        <SignedInStack/>
       </Provider>
     </SafeAreaProvider>
   );

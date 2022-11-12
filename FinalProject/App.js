@@ -1,24 +1,14 @@
-import { StyleSheet, Text, View, LoadingView, Linking } from 'react-native';
-import React, { useEffect } from 'react';
-import CameraCompo from './Components/CameraCompo';
+import { SafeAreaView } from 'react-native';
+import Navigation from './Components/Navigation';
+import HomeCompo from './Components/HomeCompo';
 
 export default function App() {
 
 
    return(
-    <>
-      <View>
-          <CameraCompo/>
-      </View>
-    </>
+      <SafeAreaView>
+          <HomeCompo/>
+      </SafeAreaView>
    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

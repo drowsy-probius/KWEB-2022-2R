@@ -5,13 +5,15 @@ import DailyStatus from "./DailyStatus";
 
 
 const dayNames = [
+
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
+  
 ];
 
 const BodyContent = () => {

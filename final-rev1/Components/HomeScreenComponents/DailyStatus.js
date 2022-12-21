@@ -22,7 +22,7 @@ const DailyStatus = ({dayName, date }) => {
   const [year, month, day] = date.split("-");
 
   const dayStatus = (() => {
-    if(year === todayYear && month === todayMonth && day === todayDay)
+    if(year == todayYear && month == todayMonth && day == todayDay)
     {
       switch(dlswmd.status){
         case 0:
@@ -69,7 +69,7 @@ const DailyStatus = ({dayName, date }) => {
       setColor('#D9D9D9')
       setImg(NaN)
     }
-  }, [])
+  }, [dayStatus]);
   
   return (
     <View style={styles.container}>

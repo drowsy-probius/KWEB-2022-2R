@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, StyleSheet } from "react-native";
-import CameraScreen from "./CameraScreen";
+import CameraStackScreen from "./CameraScreen";
 import HomeScreen from "./HomeScreen";
 import MyScreen from "./MyScreen";
 
@@ -78,12 +78,11 @@ const NavigationStack = () => {
       >
         <Tab.Screen 
           name="Camera" 
-          component={CameraScreen} 
+          component={CameraStackScreen} 
           options={{ 
-          headerTransparent: true,
-          animationTypeForReplace: 'pop',
-          }}
-          
+            headerTransparent: true,
+            animationTypeForReplace: 'pop',
+          }}          
           />
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="My" component={MyScreen} />

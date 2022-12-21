@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   View,
+  Text,
   TextInput,
   ToastAndroid,
   AppState,
@@ -40,6 +41,9 @@ import { labelImage } from 'vision-camera-image-labeler';
 import { useDispatch } from 'react-redux';
 import { setDlswmdValue } from '../redux/dlswmd';
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const CameraStack = createNativeStackNavigator();
+
 
 /**
  * Check App is foreground.
@@ -68,8 +72,8 @@ const LABELS = {
   'Bicycle': 0.8,
   'Bus': 0.8,
   'Stairs': 0.8,
-  'Computer': 0.8,
-  'Desk': 0.8,
+  'Computer': 0.5,
+  'Desk': 0.6,
   'Foot': 0.8,
   'Newspaper': 0.8,
   'Paper': 0.8,
@@ -109,7 +113,8 @@ Animated.addWhitelistedNativeProps({ text: true }); // 카메라 동작에 필�
 //   )
 // }
 
-export default function CameraScreen({navigation}) {
+// export default function CameraScreen({navigation}) {
+function CameraScreen({navigation}) {
   const dispatch = useDispatch();
 
   const devices = useCameraDevices();
@@ -146,7 +151,8 @@ export default function CameraScreen({navigation}) {
 
     if(currentLabels.value.length > 0 )
     {
-      runOnJS(goToScreen)('Home');
+      // runOnJS(goToScreen)('Home');
+      runOnJS(goToScreen)('Test');
     }
   }, [currentLabels]);
 
@@ -192,3 +198,30 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   }
 });
+
+
+
+function Test() {
+  return (
+    <View>
+      <Text>safdsafdsf</Text>
+    </View>
+  )
+}
+
+export default function CameraStackScreen() {
+  return (
+    <CameraStack.Navigator
+      initialRouteName='CameraInner'
+      screenOptions={{
+        headerShown: false, 
+        orientation: 'portrait_up',
+      }}
+    >
+      <CameraStack.Screen name="CameraInner" component={CameraScreen} />
+      <CameraStack.Screen name="Test" component={Test} />
+    </CameraStack.Navigator>
+  )
+}
+
+

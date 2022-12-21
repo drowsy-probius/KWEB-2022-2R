@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 import Goal from "../../Data/Goal.json"
 
 const DisplayGoal = () => {
 
     var hour = parseInt(Goal.Time.hour)
+    console.log(hour)
     var minute = parseInt(Goal.Time.minute)
     if (Goal.Time.ampm === "PM"){
         hour = hour -12
@@ -17,6 +18,7 @@ const DisplayGoal = () => {
         minute = "0"+minute.toString()
     }
     
+    console.log(hour)
   return (
     <View>
         <View style={styles.container}>
@@ -71,3 +73,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(103, 99, 206, 0.24)'
     }
 })
+
+

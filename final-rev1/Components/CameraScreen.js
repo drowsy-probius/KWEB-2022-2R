@@ -63,18 +63,18 @@ const useIsForeground = () => {
  * }
  */
 const LABELS = {
-  'Bicycle': 0.5,
-  'Bus': 0.5,
-  'Stairs': 0.5,
-  'Computer': 0.5,
-  'Desk': 0.5,
-  'Foot': 0.5,
-  'Newspaper': 0.5,
-  'Paper': 0.5,
-  'Road': 0.5,
-  'Shoe': 0.5,
-  'Jeans': 0.5,
-  'Shelf': 0.5,
+  'Bicycle': 0.8,
+  'Bus': 0.8,
+  'Stairs': 0.8,
+  'Computer': 0.8,
+  'Desk': 0.8,
+  'Foot': 0.8,
+  'Newspaper': 0.8,
+  'Paper': 0.8,
+  'Road': 0.8,
+  'Shoe': 0.8,
+  'Jeans': 0.8,
+  'Shelf': 0.8
 }
 
 Animated.addWhitelistedNativeProps({ text: true }); // 카메라 동작에 필요함?

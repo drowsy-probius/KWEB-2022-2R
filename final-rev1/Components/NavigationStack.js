@@ -31,7 +31,7 @@ const NavigationStack = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Camera"
         
         screenOptions={({ route }) => ({
           headerShown: false,

@@ -2,28 +2,19 @@ import React, {
   useEffect,
   useState,
   useRef,
+  createRef,
 } from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
   View,
   Text,
-  TextInput,
-  ToastAndroid,
   AppState,
-  AppStateStatus,
 } from 'react-native';
 import {
   useIsFocused
 } from '@react-navigation/core';
-import {
-  useNavigation
-} from '@react-navigation/native';
 
-// 목표 불러오기
-
-import Goal from '../Data/Goal.json'
-import StatusData from '../Data/Status.json'
 import {
   Camera,
   useCameraDevices,
@@ -39,9 +30,15 @@ import Animated, {
 import { labelImage } from 'vision-camera-image-labeler';
 
 import { useDispatch } from 'react-redux';
+
+import { setPhotoValue } from '../redux/photo';
 import { setDlswmdValue } from '../redux/dlswmd';
 
+import * as RNFS from 'react-native-fs';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import VerifyScreen from './VerifyScreen';
 const CameraStack = createNativeStackNavigator();
 
 
@@ -113,6 +110,7 @@ Animated.addWhitelistedNativeProps({ text: true }); // 카메라 동작에 필�
 //   )
 // }
 
+
 // export default function CameraScreen({navigation}) {
 function CameraScreen({navigation}) {
   const dispatch = useDispatch();
@@ -126,6 +124,49 @@ function CameraScreen({navigation}) {
   const isActive = isFocused && isForeground;
   const currentLabels = useSharedValue([]);
 
+  const camera = useRef(null)
+
+
+  const [photoPath, setPhotoPath] = useState("");
+
+  const takeSnap = (label) => {
+
+          // const photo = camera.current.takeSnapshot({
+          //   quality: 85,
+          //   skipMetadata: true
+          // });
+
+          // const path = RNFS.ExternalDirectoryPath + '/currentSnapshot.jpg';
+          // console.log('PATH: '+path)
+
+          // console.log("SEARCHING FOR SNAPSHOT PATH: "+photo.path+" ")
+          // setPhotoPath("file://" + path)
+          // RNFS.moveFile(photo, path)
+
+          // console.log(photoPath)
+
+          dispatch(setPhotoValue({
+            photoInfo : photoPath,
+            detected: label,
+        }));
+
+      }
+
+  // const takeSnap = () => {
+
+  //   const photo = camera.current.takeSnapshot({
+  //     quality: 85,
+  //     skipMetadata: true
+  //   })
+    
+  //   console.log("TESTTESTTEST "+photo["_A"])
+    
+  //   dispatch(setPhotoValue({
+  //       photoInfo : photo["_A"],
+  //   }));
+
+  // }
+
   const goToScreen = (screenName) => {
     /**
      * runOnJS에서 실행할 함수는
@@ -136,6 +177,7 @@ function CameraScreen({navigation}) {
       status: 1, 
       date: Date.now(),
     }));
+
     navigation.navigate(screenName);
   }
 
@@ -152,7 +194,8 @@ function CameraScreen({navigation}) {
     if(currentLabels.value.length > 0 )
     {
       // runOnJS(goToScreen)('Home');
-      runOnJS(goToScreen)('Test');
+      runOnJS(takeSnap)(currentLabels.value)
+      runOnJS(goToScreen)('Verify');
     }
   }, [currentLabels]);
 
@@ -168,6 +211,10 @@ function CameraScreen({navigation}) {
       });
   }, []);
 
+
+  
+  
+  
   return (
     <View style={styles.container}>
       {device != null && hasPermission ? (
@@ -179,6 +226,8 @@ function CameraScreen({navigation}) {
             frameProcessorFps={15}
             frameProcessor={frameProcessor}
             orientation='portrait'
+            ref={ camera }
+            photo={true}
           />
         </>
       ) : (
@@ -219,7 +268,7 @@ export default function CameraStackScreen() {
       }}
     >
       <CameraStack.Screen name="CameraInner" component={CameraScreen} />
-      <CameraStack.Screen name="Test" component={Test} />
+      <CameraStack.Screen name="Verify" component={VerifyScreen} />
     </CameraStack.Navigator>
   )
 }

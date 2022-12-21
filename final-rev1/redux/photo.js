@@ -3,7 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const photoSlice = createSlice({
   name: 'photo',
   initialState: {
-    value: {}
+    value: {
+      photoInfo: [],
+      detected: '',
+      
+    }
   },
   reducers: {
     setPhotoValue: (state, action) => {
@@ -16,3 +20,4 @@ export const { setPhotoValue } = photoSlice.actions;
 export const selectPhoto = (state) => state.photo.value;
 
 export default photoSlice.reducer;
+

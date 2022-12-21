@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
+import { StatusBar } from 'react-native';
 import NavigationStack from './Components/NavigationStack';
 
-//temp
-import MyScreen from './Components/MyScreen';
-
 export default function App() {
+
+  StatusBar.setBackgroundColor('black');
+  StatusBar.setTranslucent(true);
+  StatusBar.setBarStyle('light-content');
 
     return (
       <>

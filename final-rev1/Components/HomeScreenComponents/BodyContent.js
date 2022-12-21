@@ -4,17 +4,18 @@ import DailyStatus from "./DailyStatus";
 //import MyModal from './MyModal';
 
 const dayNames = [
+
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
+  
 ];
 
 const BodyContent = () => {
-
 
   const getTodaysDate = () => {
     let yourDate = new Date();

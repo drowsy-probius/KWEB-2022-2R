@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import DailyStatus from './DailyStatus'
 
-const dayNames = ["Monday", "Tuesday","Wednesday" ,"Thursday" , "Friday", "Saturday", "Sunday"]
+const dayNames = ["Sunday", "Monday", "Tuesday","Wednesday" ,"Thursday" , "Friday", "Saturday"]
 const WeeklyStatus = ({weekDateArr}) => {
   return (
     <View style={styles.container}>

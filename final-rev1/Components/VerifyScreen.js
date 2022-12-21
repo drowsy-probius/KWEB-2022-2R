@@ -1,14 +1,24 @@
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
+
 import { useSelector } from "react-redux";
+
+import { useDispatch } from 'react-redux';
+
 import { selectPhoto } from "../redux/photo";
+import { setDlswmdValue } from '../redux/dlswmd';
 
 const VerifyScreen = ({navigation}) => {
 
   const snapshot = useSelector(selectPhoto);
+  const dispatch = useDispatch();
 
   const goToHome = () => {
     navigation.navigate('Home');
+    dispatch(setDlswmdValue({
+      status: 1, 
+      date: Date.now(),
+    }));
   }
 
   const goToCamera = () => {
@@ -29,7 +39,7 @@ const VerifyScreen = ({navigation}) => {
       </View> */}
       <View style={styles.box}>
         <View style={{flexDirection: 'row'}}>
-            <Text style={[ styles.question, {fontWeight: 'bold', color: '#6763CE', fontSize: 24}]}>{snapshot.detected[0]} </Text>
+            <Text style={[ styles.question, {fontWeight: 'bold', color: '#6763CE', fontSize: 24}]}>{snapshot.detected} </Text>
             <Text style={[ styles.question, {fontWeight: 'bold', fontSize: 24}]}>Detected</Text>
         </View>
         <Text style={styles.question}>Use this image to verify.</Text>

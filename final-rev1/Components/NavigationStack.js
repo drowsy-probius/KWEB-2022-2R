@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const footer_icons = [
   {
     name: "Camera",
-    activated: require("./assets/footer_camera_deactivated.png"),
+    activated: require("./assets/footer_camera_activated.png"),
     deactivated: require("./assets/footer_camera_deactivated.png"),
   },
   {

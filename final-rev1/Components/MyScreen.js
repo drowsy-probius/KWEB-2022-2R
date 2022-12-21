@@ -27,9 +27,9 @@ const MyScreen = () => {
         <Pressable onPress={onLongPressTime}>
           <EditBox content={"Time"} />
         </Pressable>
-        <Pressable onPress={onLongPressObject}>
+        {/* <Pressable onPress={onLongPressObject}>
           <EditBox content={"Objects"} />
-        </Pressable>
+        </Pressable> */}
       </View>
       <MonthlyRecord />
 

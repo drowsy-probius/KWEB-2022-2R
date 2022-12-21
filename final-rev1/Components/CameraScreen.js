@@ -33,8 +33,6 @@ import { useDispatch } from 'react-redux';
 
 import { setPhotoValue } from '../redux/photo';
 
-import * as RNFS from 'react-native-fs';
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import VerifyScreen from './VerifyScreen';

@@ -26,8 +26,8 @@ const DisplayGoal = () => {
             <View style={styles.goal_container}>
                 <Text style={styles.p}>Time: </Text>
                 <Text style={styles.p_special}> {hour}:{minute} {Goal.Time.ampm} </Text>
-                <Text style={styles.p}> Object: </Text>
-                <Text style={styles.p_special}> {Goal.Objects.obj1}, {Goal.Objects.obj2} </Text>
+                {/* <Text style={styles.p}> Object: </Text>
+                <Text style={styles.p_special}> {Goal.Objects.obj1}, {Goal.Objects.obj2} </Text> */}
             </View>
         </View>
 
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 10,
         flexDirection: 'row',
+        justifyContent: 'center',
         padding: 10,
         width: 300,
     },

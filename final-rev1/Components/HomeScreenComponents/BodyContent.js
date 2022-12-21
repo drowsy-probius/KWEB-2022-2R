@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DailyStatus from "./DailyStatus";
 //import MyModal from './MyModal';
 
+
 const dayNames = [
   "Monday",
   "Tuesday",
@@ -14,7 +15,6 @@ const dayNames = [
 ];
 
 const BodyContent = () => {
-
 
   const getTodaysDate = () => {
     let yourDate = new Date();
@@ -89,9 +89,9 @@ const BodyContent = () => {
     }
 
    
-    console.log(newMon, newSun)
-    //이거 약간 조작...
-    console.log( )
+    // console.log(newMon, newSun)
+    // //이거 약간 조작...
+    // console.log( )
     if (newMon.toISOString().split("-")[0] === '2023' ) {
       setModalText('Year 2023 Not available yet!')
       setModalVisible(true)

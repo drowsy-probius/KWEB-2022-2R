@@ -37,6 +37,8 @@ import Animated, {
 
 import { labelImage } from 'vision-camera-image-labeler';
 
+import { useDispatch } from 'react-redux';
+import { setDlswmdValue } from '../redux/dlswmd';
 
 
 /**
@@ -108,6 +110,8 @@ Animated.addWhitelistedNativeProps({ text: true }); // 카메라 동작에 필�
 // }
 
 export default function CameraScreen({navigation}) {
+  const dispatch = useDispatch();
+
   const devices = useCameraDevices();
   const device = devices.back;
 
@@ -123,6 +127,10 @@ export default function CameraScreen({navigation}) {
      * worklet으로 선언된 함수 밖에서
      * 선언 되어야 작동하는 것 같음.
      */
+    dispatch(setDlswmdValue({
+      status: 1, 
+      date: Date.now(),
+    }));
     navigation.navigate(screenName);
   }
 

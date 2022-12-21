@@ -3,15 +3,47 @@ import React, { useState, useEffect } from 'react'
 
 import StatusData from '../../Data/Status.json'
 
+import { useSelector } from "react-redux";
+import { selectDlswmd } from "../../redux/dlswmd";
+
 const passImg = require('../assets/icon_pass.png')
 const failImg = require('../assets/icon_fail.png')
 const lateImg = require('../assets/icon_late.png')
 const restImg = require('../assets/icon_rest.png')
 
 const DailyStatus = ({dayName, date }) => {
+  const dlswmd = useSelector(selectDlswmd);
 
-  const arrDate = date.split("-")
-  const dayStatus = StatusData[arrDate[0]][arrDate[1]][arrDate[2]-1]
+  const [todayYear, todayMonth, todayDay] = [
+    (new Date()).getFullYear(),
+    (new Date()).getMonth() + 1, 
+    (new Date()).getDate()
+  ];
+  const [year, month, day] = date.split("-");
+
+  const dayStatus = (() => {
+    if(year === todayYear && month === todayMonth && day === todayDay)
+    {
+      switch(dlswmd.status){
+        case 0:
+          return "";
+        case 1:
+          return "ONTIME";
+        case 2: 
+          return "LATE";
+        case 3:
+          return "REST";
+        case 4:
+          return "FAIL";
+        default:
+          return "";
+      }
+    }
+    else 
+    {
+      return StatusData[year][month][day-1];
+    }
+  })();
 
   const [color, setColor ] = useState('#D9D9D9')
   const [img, setImg ] = useState(NaN)
@@ -37,7 +69,7 @@ const DailyStatus = ({dayName, date }) => {
       setColor('#D9D9D9')
       setImg(NaN)
     }
-  }, [dayStatus])
+  }, [])
   
   return (
     <View style={styles.container}>

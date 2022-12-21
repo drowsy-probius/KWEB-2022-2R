@@ -6,7 +6,6 @@ import StatusData from '../../Data/Status.json'
 
 const MonthlyRecord = () => {
 
-
     const getThisMonth = () => {    /* ['2022', '11', 'November'] return*/
         let yourDate = new Date();
         const offset = yourDate.getTimezoneOffset();  //현재기준으로 변환
@@ -33,7 +32,7 @@ const MonthlyRecord = () => {
 
     const dateInfo = getThisMonth()
 
-    const monthData = StatusData[dateInfo[0]][dateInfo[1]]
+    const monthData = StatusData[dateInfo[0]][dateInfo[1]];
 
     const ONTIME = monthData.filter(x => x=="ONTIME").length
     const REST = monthData.filter(x => x=="REST").length

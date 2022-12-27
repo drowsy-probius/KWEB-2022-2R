@@ -1,5 +1,8 @@
 # 2022 2학기 KWEB React-native 스터디
 
+## archived at 2022-12-27 12:07
+
+
 - [react-native components](https://reactnative.dev/docs/components-and-apis)
 
 - [expo docs](https://docs.expo.dev/)
